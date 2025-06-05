@@ -1,0 +1,12 @@
+# Example configuration file for PrismDrive CLI
+# This file can be copied to ~/.config/prismdrive_cli/config.ini or a local project config.ini
+
+[General]
+# API_BASE_URL = https://app.prismdrive.com/api
+# DEFAULT_DEVICE_NAME = prismdrive-cli-config
+
+[Logging]
+# LOG_LEVEL = INFO # DEBUG, INFO, WARNING, ERROR, CRITICAL
+# LOG_FILE = ~/.config/prismdrive_cli/prismdrive.log
+
+# Add other sections and settings as needed

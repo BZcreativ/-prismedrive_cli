@@ -1,0 +1,49 @@
+# PrismDrive CLI - Issues and Troubleshooting
+
+## Current Status
+
+We have successfully implemented:
+1. Authentication with Bearer token
+2. File listing functionality
+
+We have encountered issues with:
+1. File upload functionality
+2. Folder creation functionality (not fully tested)
+
+## Authentication Issues (Resolved)
+
+Initially, we encountered CSRF token mismatch issues when trying to authenticate via the `/auth/login` endpoint. Despite implementing various CSRF-related headers and cookies, we continued to receive 419 CSRF token mismatch errors.
+
+**Resolution**: We switched to using a Bearer token approach, which is more appropriate for CLI tools. This allowed us to successfully authenticate and access the API.
+
+## File Upload Issues
+
+When attempting to implement file upload functionality, we encountered 405 Method Not Allowed errors. We tried several potential endpoints:
+- `/api/v1/drive/file-entries`
+- `/api/v1/drive/upload`
+- `/api/v1/drive/files/upload`
+- `/api/v1/upload`
+
+All resulted in the same error: "The POST method is not supported for this route. Supported methods: GET, HEAD."
+
+## Troubleshooting Steps
+
+1. **API Documentation**: The most direct approach is to consult the PrismDrive API documentation at https://app.prismdrive.com/api-docs to find the correct endpoints for file operations.
+
+2. **Browser Developer Tools**: Use the browser's developer tools (Network tab) while performing operations in the PrismDrive web interface to observe the actual API endpoints and request formats being used.
+
+3. **Endpoint Exploration**: Continue testing different endpoint patterns based on REST API conventions and the observed behavior of the web interface.
+
+4. **Contact PrismDrive Support**: If the API documentation is incomplete or unclear, consider reaching out to PrismDrive support for guidance on the correct API usage for file operations.
+
+## Next Steps
+
+1. **Identify Correct Endpoints**: Use the API documentation or browser developer tools to identify the correct endpoints for file operations.
+
+2. **Update Implementation**: Once the correct endpoints are identified, update the CLI implementation accordingly.
+
+3. **Expand Functionality**: After resolving the current issues, expand the CLI functionality to include additional features like file downloading, deletion, and moving/renaming.
+
+4. **Error Handling**: Improve error handling and user feedback throughout the CLI.
+
+5. **Documentation**: Create comprehensive documentation for the CLI, including installation instructions, usage examples, and troubleshooting tips.
